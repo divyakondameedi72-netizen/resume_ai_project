@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Enhancer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>AI Resume Enhancer</h1>
+        <p class="subtitle">Analyze your resume & predict interview readiness</p>
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Enter Your Skills (comma separated)</label>
+                <input type="text" name="skills" placeholder="Python, Machine Learning, SQL" required>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Resume (PDF or TXT)</label>
+                <input type="file" name="resume" accept=".pdf,.txt" required>
+            </div>
+
+            <div class="form-group">
+                <label>Select Job Role</label>
+                <select name="job_role" required>
+                    <option value="">-- Select Role --</option>
+                    <option value="software_developer">Software Developer</option>
+                    <option value="data_scientist">Data Scientist</option>
+                    <option value="web_developer">Web Developer</option>
+                    <option value="ai_engineer">AI Engineer</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Analyze Resume</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
